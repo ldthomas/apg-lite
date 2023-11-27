@@ -43,7 +43,7 @@
   },
   "homepage": "https://github.com/ldthomas/apg-lite#readme",
   "devDependencies": {
-    "apg-js": "^4.2.1",
+    "apg-js": "^4.3.0",
     "eslint": "^7.26.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
