@@ -1,0 +1,15 @@
+{
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier"],
+  "import/extensions": ["always"],
+  "rules": {
+    "no-console": "off",
+    "global-require": "off",
+    "no-param-reassign": [
+      "error",
+      {
+        "props": false
+      }
+    ]
+  }
+}

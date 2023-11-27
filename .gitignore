@@ -1,0 +1,15 @@
+.*
+!.gitignore
+!.eslintrc.json
+!.prettierrc
+*~
+*.log
+*.out
+*.zip
+*.tgz
+**node_modules/
+**docs/
+**input/
+**output/
+**tmp/
+
