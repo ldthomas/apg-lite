@@ -1,6 +1,6 @@
 {
   "name": "apg-lite",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "description": "lightweight JavaScript APG parser",
   "main": "lib/parser.js",
@@ -17,7 +17,15 @@
     "uri": "node uri-app/node-app.js"
   },
   "files": [
-    "src",
+    "lib",
+    "__tests__",
+    "ast-app",
+    "basic-app",
+    "cool-app",
+    "lookahead-app",
+    "trace-app",
+    "udt-app",
+    "uri-app",
     "LICENSE.md",
     "README.md"
   ],
