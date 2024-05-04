@@ -7,6 +7,8 @@
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "apg": "node_modules/apg-js/bin/apg.sh",
+    "regen": "bin/regen.sh",
+    "min": "bin/min.sh",
     "terser": "terser",
     "ast": "node ast-app/parser-app.js && node ast-app/ast-app.js",
     "basic": "node basic-app/node-app.js",

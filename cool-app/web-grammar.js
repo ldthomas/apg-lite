@@ -20,6 +20,11 @@ const Grammar = function grammar(){
   //        UDT = 0
   //        AND = 0
   //        NOT = 0
+  //        BKA = 0
+  //        BKN = 0
+  //        BKR = 0
+  //        ABG = 0
+  //        AEN = 0
   // characters = [10 - 128526]
   // ```
   /* OBJECT IDENTIFIER (for internal parser use) */
@@ -27,13 +32,13 @@ const Grammar = function grammar(){
 
   /* RULES */
   this.rules = [];
-  this.rules[0] = {name: 'start', lower: 'start', index: 0, isBkr: false};
-  this.rules[1] = {name: 'statement', lower: 'statement', index: 1, isBkr: false};
-  this.rules[2] = {name: 'statement1', lower: 'statement1', index: 2, isBkr: false};
-  this.rules[3] = {name: 'statement2', lower: 'statement2', index: 3, isBkr: false};
-  this.rules[4] = {name: 'grin', lower: 'grin', index: 4, isBkr: false};
-  this.rules[5] = {name: 'cool', lower: 'cool', index: 5, isBkr: false};
-  this.rules[6] = {name: 'LF', lower: 'lf', index: 6, isBkr: false};
+  this.rules[0] = { name: 'start', lower: 'start', index: 0, isBkr: false };
+  this.rules[1] = { name: 'statement', lower: 'statement', index: 1, isBkr: false };
+  this.rules[2] = { name: 'statement1', lower: 'statement1', index: 2, isBkr: false };
+  this.rules[3] = { name: 'statement2', lower: 'statement2', index: 3, isBkr: false };
+  this.rules[4] = { name: 'grin', lower: 'grin', index: 4, isBkr: false };
+  this.rules[5] = { name: 'cool', lower: 'cool', index: 5, isBkr: false };
+  this.rules[6] = { name: 'LF', lower: 'lf', index: 6, isBkr: false };
 
   /* UDTS */
   this.udts = [];
@@ -41,46 +46,46 @@ const Grammar = function grammar(){
   /* OPCODES */
   /* start */
   this.rules[0].opcodes = [];
-  this.rules[0].opcodes[0] = {type: 2, children: [1,2,3,4]};// CAT
-  this.rules[0].opcodes[1] = {type: 4, index: 2};// RNM(statement1)
-  this.rules[0].opcodes[2] = {type: 4, index: 6};// RNM(LF)
-  this.rules[0].opcodes[3] = {type: 4, index: 3};// RNM(statement2)
-  this.rules[0].opcodes[4] = {type: 3, min: 0, max: 1};// REP
-  this.rules[0].opcodes[5] = {type: 4, index: 6};// RNM(LF)
+  this.rules[0].opcodes[0] = { type: 2, children: [1,2,3,4] };// CAT
+  this.rules[0].opcodes[1] = { type: 4, index: 2 };// RNM(statement1)
+  this.rules[0].opcodes[2] = { type: 4, index: 6 };// RNM(LF)
+  this.rules[0].opcodes[3] = { type: 4, index: 3 };// RNM(statement2)
+  this.rules[0].opcodes[4] = { type: 3, min: 0, max: 1 };// REP
+  this.rules[0].opcodes[5] = { type: 4, index: 6 };// RNM(LF)
 
   /* statement */
   this.rules[1].opcodes = [];
-  this.rules[1].opcodes[0] = {type: 2, children: [1,2]};// CAT
-  this.rules[1].opcodes[1] = {type: 5, min: 33, max: 126};// TRG
-  this.rules[1].opcodes[2] = {type: 3, min: 0, max: Infinity};// REP
-  this.rules[1].opcodes[3] = {type: 5, min: 32, max: 126};// TRG
+  this.rules[1].opcodes[0] = { type: 2, children: [1,2] };// CAT
+  this.rules[1].opcodes[1] = { type: 5, min: 33, max: 126 };// TRG
+  this.rules[1].opcodes[2] = { type: 3, min: 0, max: Infinity };// REP
+  this.rules[1].opcodes[3] = { type: 5, min: 32, max: 126 };// TRG
 
   /* statement1 */
   this.rules[2].opcodes = [];
-  this.rules[2].opcodes[0] = {type: 2, children: [1,2]};// CAT
-  this.rules[2].opcodes[1] = {type: 4, index: 1};// RNM(statement)
-  this.rules[2].opcodes[2] = {type: 4, index: 4};// RNM(grin)
+  this.rules[2].opcodes[0] = { type: 2, children: [1,2] };// CAT
+  this.rules[2].opcodes[1] = { type: 4, index: 1 };// RNM(statement)
+  this.rules[2].opcodes[2] = { type: 4, index: 4 };// RNM(grin)
 
   /* statement2 */
   this.rules[3].opcodes = [];
-  this.rules[3].opcodes[0] = {type: 2, children: [1,2]};// CAT
-  this.rules[3].opcodes[1] = {type: 4, index: 1};// RNM(statement)
-  this.rules[3].opcodes[2] = {type: 4, index: 5};// RNM(cool)
+  this.rules[3].opcodes[0] = { type: 2, children: [1,2] };// CAT
+  this.rules[3].opcodes[1] = { type: 4, index: 1 };// RNM(statement)
+  this.rules[3].opcodes[2] = { type: 4, index: 5 };// RNM(cool)
 
   /* grin */
   this.rules[4].opcodes = [];
-  this.rules[4].opcodes[0] = {type: 6, string: [128513]};// TBS
+  this.rules[4].opcodes[0] = { type: 6, string: [128513] };// TBS
 
   /* cool */
   this.rules[5].opcodes = [];
-  this.rules[5].opcodes[0] = {type: 6, string: [128526]};// TBS
+  this.rules[5].opcodes[0] = { type: 6, string: [128526] };// TBS
 
   /* LF */
   this.rules[6].opcodes = [];
-  this.rules[6].opcodes[0] = {type: 1, children: [1,2,3]};// ALT
-  this.rules[6].opcodes[1] = {type: 6, string: [10]};// TBS
-  this.rules[6].opcodes[2] = {type: 6, string: [13,10]};// TBS
-  this.rules[6].opcodes[3] = {type: 6, string: [13]};// TBS
+  this.rules[6].opcodes[0] = { type: 1, children: [1,2,3] };// ALT
+  this.rules[6].opcodes[1] = { type: 6, string: [10] };// TBS
+  this.rules[6].opcodes[2] = { type: 6, string: [13,10] };// TBS
+  this.rules[6].opcodes[3] = { type: 6, string: [13] };// TBS
 
   // The `toString()` function will display the original grammar file(s) that produced these opcodes.
   this.toString = function toString(){

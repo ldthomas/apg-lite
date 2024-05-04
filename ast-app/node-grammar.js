@@ -27,13 +27,13 @@ export default function grammar(){
 
   /* RULES */
   this.rules = [];
-  this.rules[0] = {name: 'authority', lower: 'authority', index: 0, isBkr: false};
-  this.rules[1] = {name: 'host', lower: 'host', index: 1, isBkr: false};
-  this.rules[2] = {name: 'userinfo', lower: 'userinfo', index: 2, isBkr: false};
-  this.rules[3] = {name: 'reg-name', lower: 'reg-name', index: 3, isBkr: false};
-  this.rules[4] = {name: 'port', lower: 'port', index: 4, isBkr: false};
-  this.rules[5] = {name: 'ALPHA', lower: 'alpha', index: 5, isBkr: false};
-  this.rules[6] = {name: 'DIGIT', lower: 'digit', index: 6, isBkr: false};
+  this.rules[0] = { name: 'authority', lower: 'authority', index: 0, isBkr: false };
+  this.rules[1] = { name: 'host', lower: 'host', index: 1, isBkr: false };
+  this.rules[2] = { name: 'userinfo', lower: 'userinfo', index: 2, isBkr: false };
+  this.rules[3] = { name: 'reg-name', lower: 'reg-name', index: 3, isBkr: false };
+  this.rules[4] = { name: 'port', lower: 'port', index: 4, isBkr: false };
+  this.rules[5] = { name: 'ALPHA', lower: 'alpha', index: 5, isBkr: false };
+  this.rules[6] = { name: 'DIGIT', lower: 'digit', index: 6, isBkr: false };
 
   /* UDTS */
   this.udts = [];
@@ -41,52 +41,52 @@ export default function grammar(){
   /* OPCODES */
   /* authority */
   this.rules[0].opcodes = [];
-  this.rules[0].opcodes[0] = {type: 2, children: [1,5,6]};// CAT
-  this.rules[0].opcodes[1] = {type: 3, min: 0, max: 1};// REP
-  this.rules[0].opcodes[2] = {type: 2, children: [3,4]};// CAT
-  this.rules[0].opcodes[3] = {type: 4, index: 2};// RNM(userinfo)
-  this.rules[0].opcodes[4] = {type: 7, string: [64]};// TLS
-  this.rules[0].opcodes[5] = {type: 4, index: 1};// RNM(host)
-  this.rules[0].opcodes[6] = {type: 3, min: 0, max: 1};// REP
-  this.rules[0].opcodes[7] = {type: 2, children: [8,9]};// CAT
-  this.rules[0].opcodes[8] = {type: 7, string: [58]};// TLS
-  this.rules[0].opcodes[9] = {type: 4, index: 4};// RNM(port)
+  this.rules[0].opcodes[0] = { type: 2, children: [1,5,6] };// CAT
+  this.rules[0].opcodes[1] = { type: 3, min: 0, max: 1 };// REP
+  this.rules[0].opcodes[2] = { type: 2, children: [3,4] };// CAT
+  this.rules[0].opcodes[3] = { type: 4, index: 2 };// RNM(userinfo)
+  this.rules[0].opcodes[4] = { type: 7, string: [64] };// TLS
+  this.rules[0].opcodes[5] = { type: 4, index: 1 };// RNM(host)
+  this.rules[0].opcodes[6] = { type: 3, min: 0, max: 1 };// REP
+  this.rules[0].opcodes[7] = { type: 2, children: [8,9] };// CAT
+  this.rules[0].opcodes[8] = { type: 7, string: [58] };// TLS
+  this.rules[0].opcodes[9] = { type: 4, index: 4 };// RNM(port)
 
   /* host */
   this.rules[1].opcodes = [];
-  this.rules[1].opcodes[0] = {type: 4, index: 3};// RNM(reg-name)
+  this.rules[1].opcodes[0] = { type: 4, index: 3 };// RNM(reg-name)
 
   /* userinfo */
   this.rules[2].opcodes = [];
-  this.rules[2].opcodes[0] = {type: 3, min: 0, max: Infinity};// REP
-  this.rules[2].opcodes[1] = {type: 1, children: [2,3,4,5]};// ALT
-  this.rules[2].opcodes[2] = {type: 4, index: 5};// RNM(ALPHA)
-  this.rules[2].opcodes[3] = {type: 4, index: 6};// RNM(DIGIT)
-  this.rules[2].opcodes[4] = {type: 7, string: [46]};// TLS
-  this.rules[2].opcodes[5] = {type: 7, string: [58]};// TLS
+  this.rules[2].opcodes[0] = { type: 3, min: 0, max: Infinity };// REP
+  this.rules[2].opcodes[1] = { type: 1, children: [2,3,4,5] };// ALT
+  this.rules[2].opcodes[2] = { type: 4, index: 5 };// RNM(ALPHA)
+  this.rules[2].opcodes[3] = { type: 4, index: 6 };// RNM(DIGIT)
+  this.rules[2].opcodes[4] = { type: 7, string: [46] };// TLS
+  this.rules[2].opcodes[5] = { type: 7, string: [58] };// TLS
 
   /* reg-name */
   this.rules[3].opcodes = [];
-  this.rules[3].opcodes[0] = {type: 3, min: 0, max: Infinity};// REP
-  this.rules[3].opcodes[1] = {type: 1, children: [2,3,4]};// ALT
-  this.rules[3].opcodes[2] = {type: 4, index: 5};// RNM(ALPHA)
-  this.rules[3].opcodes[3] = {type: 4, index: 6};// RNM(DIGIT)
-  this.rules[3].opcodes[4] = {type: 7, string: [46]};// TLS
+  this.rules[3].opcodes[0] = { type: 3, min: 0, max: Infinity };// REP
+  this.rules[3].opcodes[1] = { type: 1, children: [2,3,4] };// ALT
+  this.rules[3].opcodes[2] = { type: 4, index: 5 };// RNM(ALPHA)
+  this.rules[3].opcodes[3] = { type: 4, index: 6 };// RNM(DIGIT)
+  this.rules[3].opcodes[4] = { type: 7, string: [46] };// TLS
 
   /* port */
   this.rules[4].opcodes = [];
-  this.rules[4].opcodes[0] = {type: 3, min: 0, max: Infinity};// REP
-  this.rules[4].opcodes[1] = {type: 4, index: 6};// RNM(DIGIT)
+  this.rules[4].opcodes[0] = { type: 3, min: 0, max: Infinity };// REP
+  this.rules[4].opcodes[1] = { type: 4, index: 6 };// RNM(DIGIT)
 
   /* ALPHA */
   this.rules[5].opcodes = [];
-  this.rules[5].opcodes[0] = {type: 1, children: [1,2]};// ALT
-  this.rules[5].opcodes[1] = {type: 5, min: 65, max: 90};// TRG
-  this.rules[5].opcodes[2] = {type: 5, min: 97, max: 122};// TRG
+  this.rules[5].opcodes[0] = { type: 1, children: [1,2] };// ALT
+  this.rules[5].opcodes[1] = { type: 5, min: 65, max: 90 };// TRG
+  this.rules[5].opcodes[2] = { type: 5, min: 97, max: 122 };// TRG
 
   /* DIGIT */
   this.rules[6].opcodes = [];
-  this.rules[6].opcodes[0] = {type: 5, min: 48, max: 57};// TRG
+  this.rules[6].opcodes[0] = { type: 5, min: 48, max: 57 };// TRG
 
   // The `toString()` function will display the original grammar file(s) that produced these opcodes.
   this.toString = function toString(){

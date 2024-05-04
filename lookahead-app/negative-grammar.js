@@ -27,11 +27,11 @@ export default function grammar(){
 
   /* RULES */
   this.rules = [];
-  this.rules[0] = {name: 'C-lang', lower: 'c-lang', index: 0, isBkr: false};
-  this.rules[1] = {name: 'begin', lower: 'begin', index: 1, isBkr: false};
-  this.rules[2] = {name: 'comment', lower: 'comment', index: 2, isBkr: false};
-  this.rules[3] = {name: 'end', lower: 'end', index: 3, isBkr: false};
-  this.rules[4] = {name: 'any-char', lower: 'any-char', index: 4, isBkr: false};
+  this.rules[0] = { name: 'C-lang', lower: 'c-lang', index: 0, isBkr: false };
+  this.rules[1] = { name: 'begin', lower: 'begin', index: 1, isBkr: false };
+  this.rules[2] = { name: 'comment', lower: 'comment', index: 2, isBkr: false };
+  this.rules[3] = { name: 'end', lower: 'end', index: 3, isBkr: false };
+  this.rules[4] = { name: 'any-char', lower: 'any-char', index: 4, isBkr: false };
 
   /* UDTS */
   this.udts = [];
@@ -39,30 +39,30 @@ export default function grammar(){
   /* OPCODES */
   /* C-lang */
   this.rules[0].opcodes = [];
-  this.rules[0].opcodes[0] = {type: 2, children: [1,2,3]};// CAT
-  this.rules[0].opcodes[1] = {type: 4, index: 1};// RNM(begin)
-  this.rules[0].opcodes[2] = {type: 4, index: 2};// RNM(comment)
-  this.rules[0].opcodes[3] = {type: 4, index: 3};// RNM(end)
+  this.rules[0].opcodes[0] = { type: 2, children: [1,2,3] };// CAT
+  this.rules[0].opcodes[1] = { type: 4, index: 1 };// RNM(begin)
+  this.rules[0].opcodes[2] = { type: 4, index: 2 };// RNM(comment)
+  this.rules[0].opcodes[3] = { type: 4, index: 3 };// RNM(end)
 
   /* begin */
   this.rules[1].opcodes = [];
-  this.rules[1].opcodes[0] = {type: 7, string: [47,42]};// TLS
+  this.rules[1].opcodes[0] = { type: 7, string: [47,42] };// TLS
 
   /* comment */
   this.rules[2].opcodes = [];
-  this.rules[2].opcodes[0] = {type: 3, min: 0, max: Infinity};// REP
-  this.rules[2].opcodes[1] = {type: 2, children: [2,4]};// CAT
-  this.rules[2].opcodes[2] = {type: 13};// NOT
-  this.rules[2].opcodes[3] = {type: 4, index: 3};// RNM(end)
-  this.rules[2].opcodes[4] = {type: 4, index: 4};// RNM(any-char)
+  this.rules[2].opcodes[0] = { type: 3, min: 0, max: Infinity };// REP
+  this.rules[2].opcodes[1] = { type: 2, children: [2,4] };// CAT
+  this.rules[2].opcodes[2] = { type: 13 };// NOT
+  this.rules[2].opcodes[3] = { type: 4, index: 3 };// RNM(end)
+  this.rules[2].opcodes[4] = { type: 4, index: 4 };// RNM(any-char)
 
   /* end */
   this.rules[3].opcodes = [];
-  this.rules[3].opcodes[0] = {type: 7, string: [42,47]};// TLS
+  this.rules[3].opcodes[0] = { type: 7, string: [42,47] };// TLS
 
   /* any-char */
   this.rules[4].opcodes = [];
-  this.rules[4].opcodes[0] = {type: 5, min: 32, max: 126};// TRG
+  this.rules[4].opcodes[0] = { type: 5, min: 32, max: 126 };// TRG
 
   // The `toString()` function will display the original grammar file(s) that produced these opcodes.
   this.toString = function toString(){

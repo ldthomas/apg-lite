@@ -1255,6 +1255,11 @@ const uriParser = (function () {
     //        UDT = 0
     //        AND = 0
     //        NOT = 3
+    //        BKA = 0
+    //        BKN = 0
+    //        BKR = 0
+    //        ABG = 0
+    //        AEN = 0
     // characters = [10 - 126]
     // ```
     /* OBJECT IDENTIFIER (for internal parser use) */
