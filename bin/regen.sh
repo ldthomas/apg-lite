@@ -31,11 +31,20 @@ name=uri
 g=$name-app/grammar.txt
 w=$name-app/grammar
 node_modules/apg-js/bin/apg.sh --in=$g --out=$w --name=UriGrammar
+w=$name-app/node-grammar
+node_modules/apg-js/bin/apg.sh --in=$g --out=$w --lite
 name=lookahead
 g=$name-app/negative-grammar.txt
 w=$name-app/negative-grammar
 node_modules/apg-js/bin/apg.sh --in=$g --out=$w --lite
 g=$name-app/positive-grammar.txt
 w=$name-app/positive-grammar
+node_modules/apg-js/bin/apg.sh --in=$g --out=$w --lite
+name=__tests__
+g=$name/anbncn.txt
+w=$name/anbncn-lite
+node_modules/apg-js/bin/apg.sh --in=$g --out=$w --lite
+g=$name/phone.txt
+w=$name/phone-grammar
 node_modules/apg-js/bin/apg.sh --in=$g --out=$w --lite
 

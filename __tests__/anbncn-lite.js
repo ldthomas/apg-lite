@@ -27,12 +27,12 @@ export default function grammar(){
 
   /* RULES */
   this.rules = [];
-  this.rules[0] = {name: 'S', lower: 's', index: 0, isBkr: false};
-  this.rules[1] = {name: 'AB', lower: 'ab', index: 1, isBkr: false};
-  this.rules[2] = {name: 'BC', lower: 'bc', index: 2, isBkr: false};
-  this.rules[3] = {name: 'a', lower: 'a', index: 3, isBkr: false};
-  this.rules[4] = {name: 'b', lower: 'b', index: 4, isBkr: false};
-  this.rules[5] = {name: 'c', lower: 'c', index: 5, isBkr: false};
+  this.rules[0] = { name: 'S', lower: 's', index: 0, isBkr: false };
+  this.rules[1] = { name: 'AB', lower: 'ab', index: 1, isBkr: false };
+  this.rules[2] = { name: 'BC', lower: 'bc', index: 2, isBkr: false };
+  this.rules[3] = { name: 'a', lower: 'a', index: 3, isBkr: false };
+  this.rules[4] = { name: 'b', lower: 'b', index: 4, isBkr: false };
+  this.rules[5] = { name: 'c', lower: 'c', index: 5, isBkr: false };
 
   /* UDTS */
   this.udts = [];
@@ -40,45 +40,45 @@ export default function grammar(){
   /* OPCODES */
   /* S */
   this.rules[0].opcodes = [];
-  this.rules[0].opcodes[0] = {type: 2, children: [1,6,8,9]};// CAT
-  this.rules[0].opcodes[1] = {type: 12};// AND
-  this.rules[0].opcodes[2] = {type: 2, children: [3,4]};// CAT
-  this.rules[0].opcodes[3] = {type: 4, index: 1};// RNM(AB)
-  this.rules[0].opcodes[4] = {type: 13};// NOT
-  this.rules[0].opcodes[5] = {type: 4, index: 4};// RNM(b)
-  this.rules[0].opcodes[6] = {type: 3, min: 1, max: Infinity};// REP
-  this.rules[0].opcodes[7] = {type: 4, index: 3};// RNM(a)
-  this.rules[0].opcodes[8] = {type: 4, index: 2};// RNM(BC)
-  this.rules[0].opcodes[9] = {type: 13};// NOT
-  this.rules[0].opcodes[10] = {type: 4, index: 5};// RNM(c)
+  this.rules[0].opcodes[0] = { type: 2, children: [1,6,8,9] };// CAT
+  this.rules[0].opcodes[1] = { type: 12 };// AND
+  this.rules[0].opcodes[2] = { type: 2, children: [3,4] };// CAT
+  this.rules[0].opcodes[3] = { type: 4, index: 1 };// RNM(AB)
+  this.rules[0].opcodes[4] = { type: 13 };// NOT
+  this.rules[0].opcodes[5] = { type: 4, index: 4 };// RNM(b)
+  this.rules[0].opcodes[6] = { type: 3, min: 1, max: Infinity };// REP
+  this.rules[0].opcodes[7] = { type: 4, index: 3 };// RNM(a)
+  this.rules[0].opcodes[8] = { type: 4, index: 2 };// RNM(BC)
+  this.rules[0].opcodes[9] = { type: 13 };// NOT
+  this.rules[0].opcodes[10] = { type: 4, index: 5 };// RNM(c)
 
   /* AB */
   this.rules[1].opcodes = [];
-  this.rules[1].opcodes[0] = {type: 2, children: [1,2,4]};// CAT
-  this.rules[1].opcodes[1] = {type: 4, index: 3};// RNM(a)
-  this.rules[1].opcodes[2] = {type: 3, min: 0, max: 1};// REP
-  this.rules[1].opcodes[3] = {type: 4, index: 1};// RNM(AB)
-  this.rules[1].opcodes[4] = {type: 4, index: 4};// RNM(b)
+  this.rules[1].opcodes[0] = { type: 2, children: [1,2,4] };// CAT
+  this.rules[1].opcodes[1] = { type: 4, index: 3 };// RNM(a)
+  this.rules[1].opcodes[2] = { type: 3, min: 0, max: 1 };// REP
+  this.rules[1].opcodes[3] = { type: 4, index: 1 };// RNM(AB)
+  this.rules[1].opcodes[4] = { type: 4, index: 4 };// RNM(b)
 
   /* BC */
   this.rules[2].opcodes = [];
-  this.rules[2].opcodes[0] = {type: 2, children: [1,2,4]};// CAT
-  this.rules[2].opcodes[1] = {type: 4, index: 4};// RNM(b)
-  this.rules[2].opcodes[2] = {type: 3, min: 0, max: 1};// REP
-  this.rules[2].opcodes[3] = {type: 4, index: 2};// RNM(BC)
-  this.rules[2].opcodes[4] = {type: 4, index: 5};// RNM(c)
+  this.rules[2].opcodes[0] = { type: 2, children: [1,2,4] };// CAT
+  this.rules[2].opcodes[1] = { type: 4, index: 4 };// RNM(b)
+  this.rules[2].opcodes[2] = { type: 3, min: 0, max: 1 };// REP
+  this.rules[2].opcodes[3] = { type: 4, index: 2 };// RNM(BC)
+  this.rules[2].opcodes[4] = { type: 4, index: 5 };// RNM(c)
 
   /* a */
   this.rules[3].opcodes = [];
-  this.rules[3].opcodes[0] = {type: 7, string: [97]};// TLS
+  this.rules[3].opcodes[0] = { type: 7, string: [97] };// TLS
 
   /* b */
   this.rules[4].opcodes = [];
-  this.rules[4].opcodes[0] = {type: 7, string: [98]};// TLS
+  this.rules[4].opcodes[0] = { type: 7, string: [98] };// TLS
 
   /* c */
   this.rules[5].opcodes = [];
-  this.rules[5].opcodes[0] = {type: 7, string: [99]};// TLS
+  this.rules[5].opcodes[0] = { type: 7, string: [99] };// TLS
 
   // The `toString()` function will display the original grammar file(s) that produced these opcodes.
   this.toString = function toString(){
