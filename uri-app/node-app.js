@@ -1,4 +1,8 @@
 import { uriParser } from './node-uri-parser.js';
+
+Array.prototype.foo = function () {
+  console.log(this.length);
+};
 let uri = 'https://user:pass@example.com:123/one/two.three?q1=a1&q2=a2#body';
 console.log(`PARSE OF URI "${uri}"`);
 const doTrace = false;

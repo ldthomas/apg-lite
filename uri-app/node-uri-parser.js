@@ -97,19 +97,21 @@ const uriParser = (function () {
         list.push(udts[i].lower);
       }
       for (const index in p.callbacks) {
-        i = list.indexOf(index.toLowerCase());
-        if (i < 0) {
-          throw new Error(`${functionName}syntax callback '${index}' not a rule or udt name`);
-        }
-        func = p.callbacks[index] ? p.callbacks[index] : undefined;
-        if (typeof func === 'function' || func === undefined) {
-          if (i < rules.length) {
-            ruleCallbacks[i] = func;
-          } else {
-            udtCallbacks[i - rules.length] = func;
+        if (p.callbacks.hasOwnProperty(index)) {
+          i = list.indexOf(index.toLowerCase());
+          if (i < 0) {
+            throw new Error(`${functionName}syntax callback '${index}' not a rule or udt name`);
           }
-        } else {
-          throw new Error(`${functionName}syntax callback[${index}] must be function reference or falsy)`);
+          func = p.callbacks[index] ? p.callbacks[index] : undefined;
+          if (typeof func === 'function' || func === undefined) {
+            if (i < rules.length) {
+              ruleCallbacks[i] = func;
+            } else {
+              udtCallbacks[i - rules.length] = func;
+            }
+          } else {
+            throw new Error(`${functionName}syntax callback[${index}] must be function reference or falsy)`);
+          }
         }
       }
     };
@@ -123,9 +125,11 @@ const uriParser = (function () {
       const lower = startName.toLowerCase();
       let startIndex = undefined;
       for (const i in rules) {
-        if (lower === rules[i].lower) {
-          startIndex = rules[i].index;
-          break;
+        if (rules.hasOwnProperty(i)) {
+          if (lower === rules[i].lower) {
+            startIndex = rules[i].index;
+            break;
+          }
         }
       }
       if (startIndex === undefined) {
@@ -661,12 +665,14 @@ const uriParser = (function () {
         nodeCallbacks[i] = undefined;
       }
       for (const index in a.callbacks) {
-        const lower = index.toLowerCase();
-        i = list.indexOf(lower);
-        if (i < 0) {
-          throw new Error(`${thisFileName}init: node '${index}' not a rule or udt name`);
+        if (a.callbacks.hasOwnProperty(index)) {
+          const lower = index.toLowerCase();
+          i = list.indexOf(lower);
+          if (i < 0) {
+            throw new Error(`${thisFileName}init: node '${index}' not a rule or udt name`);
+          }
+          nodeCallbacks[i] = a.callbacks[index];
         }
-        nodeCallbacks[i] = a.callbacks[index];
       }
     };
     /* AST node rule callbacks - called by the parser's `RNM` operator */

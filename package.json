@@ -1,6 +1,6 @@
 {
   "name": "apg-lite",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "description": "lightweight JavaScript APG parser",
   "main": "lib/parser.js",

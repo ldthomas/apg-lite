@@ -3,6 +3,12 @@
 import { Parser, Trace, identifiers as id, utilities as utils } from '../lib/parser.js';
 import { default as Grammar } from './phone-grammar.js';
 
+// Insure that tests all work even if the array prototype has been extended
+// outside of the scope of the parser.
+Array.prototype.foo = function () {
+  console.log(this.length);
+};
+
 // define the RNM and UDT callback functions
 const UDToffice = (sys, chars, phraseIndex, data) => {
   let matchFound = false;

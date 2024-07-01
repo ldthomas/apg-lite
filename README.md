@@ -2,7 +2,7 @@
 
 `apg-lite` is a light-weight parser of [ABNF](https://www.rfc-editor.org/rfc/rfc5234) grammars.
 It is a parser only.
-It relies on [apg-js](https://github.com/ldthomas/apg-js), version 4.3.0, with the new `--lite` option
+It relies on [apg-js](https://github.com/ldthomas/apg-js), version 4.3.0 or higher, with the new `--lite` option
 to generate ESM grammar objects.
 `apg-lite` features:
 

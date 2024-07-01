@@ -2,6 +2,12 @@
 // console.log(`cwd: ${cwd()}`);
 import { Parser, identifiers as id, utilities as utils } from '../lib/parser.js';
 
+// Insure that tests all work even if the array prototype has been extended
+// outside of the scope of the parser.
+Array.prototype.foo = function () {
+  console.log(this.length);
+};
+
 const p = new Parser();
 let result;
 let str;
