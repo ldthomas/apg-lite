@@ -1,9 +1,15 @@
 import { uriParser } from './node-uri-parser.js';
+const args = process.argv.slice(2);
 
 Array.prototype.foo = function () {
   console.log(this.length);
 };
-let uri = 'https://user:pass@example.com:123/one/two.three?q1=a1&q2=a2#body';
+let uri;
+if (args.length === 0) {
+  uri = 'https://user:pass@example.com:123/one/two.three?q1=a1&q2=a2#body';
+} else {
+  uri = args[0];
+}
 console.log(`PARSE OF URI "${uri}"`);
 const doTrace = false;
 const result = uriParser.parse(uri, doTrace);

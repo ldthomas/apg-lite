@@ -45,6 +45,12 @@ describe('test IPv4 addresses', () => {
     result = p.parse(uri);
     expect(result.host).toBe('::001.099.200.255');
   });
+  test('IPv4address 4', () => {
+    // version 1.0.4 and earlier would accept empty octets
+    uri = 'uri://[::1..200.255]';
+    result = p.parse(uri);
+    expect(result).toBeUndefined();
+  });
 });
 describe('test IPv6 addresses', () => {
   test('IPv6address no double colon', () => {

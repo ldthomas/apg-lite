@@ -39,9 +39,23 @@ Use `npm run` to see the script names of the demonstrations.
 
 ### The URI Parser
 
+Note: version 1.0.5 fixes a bug in the URI grammar.
+The previous versions incorrectly allowed empty strings for the IPv4 octets.
+No changes to the `apg-lite` parser or any of the other examples have been made.
+
 The `UriParser` object in the `./uri-app/` application is of special interest.
 It is a fully-contained (no dependencies) [URI](https://www.rfc-editor.org/rfc/rfc3986) parser.
-It is well-tested in the [Jest](https://jestjs.io/) unit tests in the `__tests__` directory.
+Any URI can be parsed with, for example:
+
+> npm run uri -- http://user@example.com
+
+If no argument is given, the example will parse a pre-chosen representive URI.
+
+`UriParser` is well-tested with [Jest](https://jestjs.io/) unit tests in the `__tests__` directory.
+
+> npm test
+
+will run all of the unit tests.
 
 See `./uri-app/documentation.md` for complete documentation.
 See `./uri-app/node-app.js` for a sample Node.js application
