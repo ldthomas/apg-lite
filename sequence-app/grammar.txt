@@ -1,0 +1,10 @@
+s = a b c
+a = lp 1*a rp / lp rp
+b = lc 1*b rc / lc rc
+c = lb 1*c rb / lb rb
+lp = %s"("
+rp = %s")"
+lc = %s"{"
+rc = %s"}"
+lb = %s"["
+rb = %s"]"

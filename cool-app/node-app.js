@@ -1,5 +1,5 @@
 import { default as Grammar } from './node-grammar.js';
-import { Parser, Trace, utilities as utils, identifiers as id } from '../lib/parser.js';
+import { Parser, utilities as utils, identifiers as id } from '../lib/parser.js';
 
 const obj = new Grammar();
 const parser = new Parser();
@@ -28,7 +28,6 @@ parser.callbacks['statement2'] = (sys, chars, phraseIndex, data) => {
 const data = {};
 let input = 'See you later alligator. \uD83D\uDE01\n';
 input += 'After while crocodile. \uD83D\uDE0E\n';
-parser.trace = new Trace();
 const result = parser.parse(obj, 'start', input, data);
 console.log('\nPARSER INPUT STRING');
 console.log(input);
