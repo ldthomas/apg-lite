@@ -103,3 +103,17 @@ describe('test conversion of array of UTF-16 character codes to JavaScript strin
     expect(str).toEqual('');
   });
 });
+describe('test conversion of array of UTF-16 character codes to XML-safe string', () => {
+  test('replace XML entities', () => {
+    str = `&<>'"`;
+    result = utils.stringToChars(str);
+    str = utils.charsToXmlString(result);
+    expect(str).toEqual('&amp;&lt;&gt;&apos;&quot;');
+  });
+  test('replace XML entities in substring', () => {
+    str = 'ab&<>"\'cd';
+    result = utils.stringToChars(str);
+    str = utils.charsToXmlString(result, 2, 5);
+    expect(str).toEqual('&amp;&lt;&gt;&quot;&apos;');
+  });
+});
