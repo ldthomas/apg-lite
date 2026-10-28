@@ -24,6 +24,7 @@ The files that you write are:
 - grammar.txt - the SABNF grammar that defines the parser
 - parser-app.js - the parser callbacks application
 - ast-app.js - the AST callbacks application
+- ast-xml.js - the AST demonstration of AST.toXml()
 
 The remaining files can be generated with:
 
@@ -86,4 +87,25 @@ For the AST callback function demonstration simply run:
 
 ```
 node ast-app/ast-app.js
+```
+
+### The AST XML App
+
+Demonstrates how the classes of characters, valid XML, invalid XML and XML entities are handled
+in the function AST.toXml().
+
+The grammar is
+
+```
+text = word *(%x20 word)
+word = 1*(entities / xml / non-xml)
+entities = 1*(%d38 / %d60 / %d62 / %d34 / %d39)
+xml =1*(%x9-A / %xD / %x21-D7FF /%xE000-FFFD / %x10000-10FFFF)
+non-xml = 1*(%x0-8 / %xB-C / %xE-1F / %xD800-DFFF / %xFFFE-FFFF / %x110000-11FFFF)
+```
+
+For this demonstration simply run:
+
+```
+node ast-app/ast-xml.js
 ```

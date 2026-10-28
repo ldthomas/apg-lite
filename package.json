@@ -1,16 +1,16 @@
 {
   "name": "apg-lite",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "type": "module",
   "description": "lightweight JavaScript APG parser",
   "main": "lib/parser.js",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "apg": "node_modules/apg-js/bin/apg.sh",
+    "apg": "node node_modules/apg-js/bin/apg.sh",
     "regen": "bin/regen.sh",
     "min": "bin/min.sh",
     "terser": "terser",
-    "ast": "node ast-app/parser-app.js && node ast-app/ast-app.js",
+    "ast": "node ast-app/parser-app.js && node ast-app/ast-app.js && node ast-app/ast-xml.js",
     "basic": "node basic-app/node-app.js",
     "cool": "node cool-app/node-app.js",
     "lookahead": "node lookahead-app/positive-app.js && node lookahead-app/negative-app.js",
@@ -53,7 +53,7 @@
   },
   "homepage": "https://github.com/ldthomas/apg-lite#readme",
   "devDependencies": {
-    "apg-js": "^4.4.0",
+    "apg-js": "4.4.0",
     "eslint": "^7.26.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",

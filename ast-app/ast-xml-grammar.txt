@@ -1,0 +1,5 @@
+text = word *(%x20 word)
+word = 1*(entities / xml / non-xml)
+entities = 1*(%d38 / %d60 / %d62 / %d34 / %d39)
+xml =1*(%x9-A / %xD / %x21-D7FF /%xE000-FFFD / %x10000-10FFFF)
+non-xml = 1*(%x0-8 / %xB-C / %xE-1F / %xD800-DFFF / %xFFFE-FFFF / %x110000-11FFFF)
